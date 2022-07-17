@@ -7,3 +7,8 @@ H1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background-color: blue;
 }
+
+bg {
+    background-image: url(./Multimedia/bg.png)
+
+}
