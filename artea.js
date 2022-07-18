@@ -14,45 +14,34 @@
 
 //alert ("Todos los amigos que ingresaste fueron: " + amigos)
 
-function Ejecucion () {
+
 
 let comprador = prompt ("Bienvenido a Artea ¿usted es comprador? Responda con SI o NO:") ;
 
-while ( comprador = "SI" & "NO") {
+while ( comprador != "SI" && comprador != "NO") { 
 
   alert ("Por favor ingrese una respuesta valida.");
+  comprador = prompt ("Bienvenido a Artea ¿usted es comprador? Responda con SI o NO:");
 
 } ;
 
 if (comprador == "SI" ) {
-  Diminombre() ;
+  CantProd() ;
 } 
 
 else if ( comprador == "NO" ) {
-  alert ("Chupalo Maduro") ; } ;
+  alert ("¡Hasta la proxima!") ; } ;
+
+
+function CantProd () {
+
+  let prod1 = parseInt (prompt ("¿Cuantas pestañas quiere?")) ;
+  let prod2 = parseInt (prompt ("¿Cuantas mascarillas quiere?")) ;
+  let prod3 = parseInt (prompt ("¿Cuantas paletas quiere?")) ;
+
+  let prodtotal = prod1 + prod2 + prod3 ;
+
+  alert ("En total usted lleva " + prodtotal + " productos")
 
 } ;
 
-function Diminombre () {
-
-  let nombre = parseInt (prompt ("Ingrese su nombre:")) ;
-  let nombre2 = parseInt (prompt ("Mascarilla")) ;
-  let nombre3 = parseInt (prompt ("Paletas")) ;
-
-  let pepito = nombre + nombre2 + nombre3 ;
-
-  alert ("Su nombre es: " + pepito)
-
-} ;
-
-function Salida () {
-  
-  while ( comprador =! "SI" & "NO") {
-  
-    alert ("Por favor ingrese una respuesta valida.");
-    break;
-  } ;
-  
-}
-
-Ejecucion(Diminombre(Salida()))
