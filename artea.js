@@ -32,22 +32,23 @@ while ( comprador != "SI" && comprador != "NO") {
 if (comprador == "SI" ) {
   console.log ("Este es el stock disponible");
   console.log ("<h2> Producto Precio Stock </h2>");
-    Impr_Lista ()
+    Impr_Lista (Inventario)
 
+    const Reponer_Inventario = Inventario.filter ((el) => el.stock == 0)
+
+    console.log ("Necesitamos reponer el inventario de " )
+    Impr_Lista (Reponer_Inventario)
+    
 } 
 
 else if ( comprador == "NO" ) {
   alert ("¡Hasta la proxima!") ; } ;
 
-function Impr_Lista () {
-    for (const item of Inventario) {
+function Impr_Lista (Lista) {
+    for (const item of Lista) {
     console.log ("<h2>"+ item.prod + " " + item.precio + " " + item.stock +"</h2>")
     } 
 }; 
-
-const Reponer_Inventario = Inventario.filter ((el) => el.stock == 0)
-
-console.log (Reponer_Inventario)
 
 
 //function CantProd () {
