@@ -1,15 +1,3 @@
-
-
-const productos = ["Mascarillas","Paletas", "Brochas", "Sombras", "Labiales","Delineadores"] ;
-
-let enTotal = console.log (productos.length);
-
-
-
-
-
-
-
 ////let nombre = prompt ("Por favor ingresa los nombres de tus amigos.") ;
 //let amigos = "" ;
 
@@ -25,23 +13,41 @@ let enTotal = console.log (productos.length);
 
 //alert ("Todos los amigos que ingresaste fueron: " + amigos)
 
+const Inventario = [
+  {prod: "Labiales", precio: 20, stock: 35},
+  {prod: "Mascarilla", precio: 10, stock: 12},
+  {prod: "Sombras", precio: 30, stock: 0},
+  {prod: "Delineador", precio: 10, stock: 3},
+] ;
 
+let comprador = prompt ("Bienvenido a Artea ¿usted es comprador? Responda con SI o NO:") ;
 
-//let comprador = prompt ("Bienvenido a Artea ¿usted es comprador? Responda con SI o NO:") ;
+while ( comprador != "SI" && comprador != "NO") { 
 
-//while ( comprador != "SI" && comprador != "NO") { 
+  alert ("Por favor ingrese una respuesta valida.");
+  comprador = prompt ("Bienvenido a Artea ¿usted es comprador? Responda con SI o NO:");
 
-  //alert ("Por favor ingrese una respuesta valida.");
-  //comprador = prompt ("Bienvenido a Artea ¿usted es comprador? Responda con SI o NO:");
+} ;
 
-//} ;
+if (comprador == "SI" ) {
+  console.log ("Este es el stock disponible");
+  console.log ("<h2> Producto Precio Stock </h2>");
+    Impr_Lista ()
 
-//if (comprador == "SI" ) {
-  //CantProd() ;
-//} 
+} 
 
-//else if ( comprador == "NO" ) {
-  //alert ("¡Hasta la proxima!") ; } ;
+else if ( comprador == "NO" ) {
+  alert ("¡Hasta la proxima!") ; } ;
+
+function Impr_Lista () {
+    for (const item of Inventario) {
+    console.log ("<h2>"+ item.prod + " " + item.precio + " " + item.stock +"</h2>")
+    } 
+}; 
+
+const Reponer_Inventario = Inventario.filter ((el) => el.stock == 0)
+
+console.log (Reponer_Inventario)
 
 
 //function CantProd () {
