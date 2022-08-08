@@ -1,14 +1,48 @@
-
-
-
-H1 {
-    color: red;
-    font-size: 20px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    background-color: blue;
+.header {
+    display: inline-block;
+    background-color: #f8eae7;
+    width: 100%;
+    height: auto;
 }
 
-bg {
-    background-image: url(./Multimedia/bg.png)
+.hd__logo {
+    display: flex;
+    align-items: center;
+}
 
+.hd__navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+
+.nav__link {
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    -webkit-text-stroke: 0.5px;
+    -webkit-text-stroke-color: red;
+    
+}
+
+
+.footer {
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+   background-color: #f8eae7;
+}
+
+.footer__logo {
+    width: 30%;
+    height: auto;
+}
+
+.footer__item {
+    width: 140%;
+    height: auto;
 }
