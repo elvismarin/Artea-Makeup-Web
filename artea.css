@@ -1,8 +1,12 @@
+body {
+    background-color: #f8eae7;
+}
+
 .header {
     display: inline-block;
-    background-color: #f8eae7;
     width: 100%;
     height: auto;
+    text-align: center;
 }
 
 .hd__logo {
@@ -34,7 +38,6 @@
    display: flex;
    align-items: center;
    justify-content: space-evenly;
-   background-color: #f8eae7;
 }
 
 .footer__logo {
@@ -46,3 +49,18 @@
     width: 140%;
     height: auto;
 }
+
+.imagenes {
+    width: 400px;
+    height: auto;
+}
+
+.producto {
+    margin: 0.5rem;
+}
+
+.botonComprar {
+    color: blueviolet;
+    background-color: black;
+}
+
