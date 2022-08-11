@@ -24,8 +24,21 @@ productos.push(producto4);
 
 const contenedorCarrito = document.getElementById("carrito-contenedor")
 
+const botonVaciar = document.getElementById("vaciar-carrito")
+
+const contadorCarrito = document.getElementById("contadorCarrito")
+
+const precioTotal = document.getElementById("precioTotal")
+
+botonVaciar.addEventListener("click", () => {
+    carrito.length = 0
+    actualizarCarrito()
+})
+
+
 let carrito = []
 
+// Mostrar los productos 
 
 function mostrarProductos(productos) {
 
@@ -55,19 +68,36 @@ function mostrarProductos(productos) {
     });
 }
 
+// Agregar cosas al carrito
 
 const agregarAlCarrito = (productoId) => {
+
+    const existe = carrito.some (producto => producto.id === productoId)
+
+    if (existe) {
+        const producto = carrito.map(producto => {
+            if (producto.id === productoId) {
+                producto.cantidad++
+            }
+        })
+    } else {
     const item = productos.find ((producto) => producto.id === productoId)
     carrito.push(item);
     actualizarCarrito();
     console.log(carrito)
 }
+actualizarCarrito()
+}
 
 mostrarProductos(productos);
 
+// Función para que se actualice el carrito en cada movimiento
+
 const actualizarCarrito = () => {
 
-    carrito.forEach(producto) ; {
+    contenedorCarrito.innerHTML = ""
+
+    carrito.forEach(producto => {
         const div = document.createElement("div")
         div.className = ("productoEnCarrito")
         div.innerHTML = `
@@ -77,5 +107,42 @@ const actualizarCarrito = () => {
         <button onclick = "eliminarDelCarrito(${producto.id})" class="boton-eliminar"></button>
         `
 
-       contenedorCarrito.appendChild(div)
-    }}
+       contenedorCarrito.appendChild(div) 
+
+       localStorage.setItem("carrito", JSON.stringify(carrito))
+    }); 
+
+    contadorCarrito.innerText = carrito.length
+        
+    precioTotal.innerText = carrito.reduce((acc, producto) => acc + producto.precio, 0 )
+}
+
+//Eliminar productos del carrito
+
+const eliminarDelCarrito = (productoId) => {
+    
+    const item = carrito.find((producto) => producto.id === productoId)
+    const indice = carrito.indexOf(item)
+
+    carrito.splice(indice, 1)
+
+    actualizarCarrito ()
+}
+
+// Almacenamiento
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (localStorage.getItem("carrito")) {
+        carrito = JSON.parse(localStorage.getItem("carrito"))
+        actualizarCarrito()
+    }
+})
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (localStorage.getItem("carrito")) {
+        carrito = JSON.parse(localStorage.getItem("carrito"))
+        actualizarCarrito()
+    }
+})
