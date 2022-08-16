@@ -30,15 +30,23 @@
     </header>
 
     <main>
-      <section class="container-fluid mt-5">
+      <section class="container-fluid mt-5 contacto">
         <article class="row justify-content-center">
           <div class="col-10 col-md-8">
+           
+            <div class="contactoRedes">
+            <h3 class="text-center">Encuentranos en</h3>
+            <h4>Whatsapp</h4>
+            <h4>instagram</h4>
+            <h4>Facebook</h4>
+            <h4>Tiktok</h4>
+            </div>
+
+            <div>
+            <h3 class="text-center">¿Alguna duda o sugerencia?</h3>
+            <form class="mt-5" action="../enviarAlCorreo.php" method="post" enctype="text/plain">
   
-            <h3 class="text-center pg__title">Contacto</h3>
-            <form class="mt-5" action="#" method="get" enctype="text/plain">
-  
-              <legend class="form__bg">
-        
+              <legend class="">
                 <div class="mb-3"><label class="form__font" for="Name"> ¿Cual es tu nombre? </label>
                   <input class="form-control" type="text" name="Name">
                 </div>
@@ -48,14 +56,13 @@
                 </div>
   
                 <div class="mb-3"><label class="form__font" for="email">¿Y tu correo electronico?</label>
-                  <input class="form-control" type="email" id="email">
+                  <input class="form-control" type="email" id="email" name="email">
                   <div class="fs-6 form-text form__font">NOTA: los datos proporcionados son confidenciales y para uso exclusivo de Artea. </div>
                 </div>
                
                 <div><label class="form-label form__font" for="comment"> Sentite libre de hacernos cualquier consulta o comentario! :)
                   </label>
-                  <textarea class="form-control mb-3 form__font" id="comment" rows="6"></textarea></div>
-  
+                  <textarea class="form-control mb-3 form__font" id="comment" name="comment" rows="6"></textarea></div>
               </legend>
   
   
@@ -63,8 +70,9 @@
                 <button id="enviarFormulario" class="btn btn__send " type="submit" value="send" >ENVIAR</button>
                 <button class="btn btn__delete " type="reset" value="delete_all">BORRAR TODO</button>
               </div>
-  
+            
             </form>
+            </div>
           </div>
         </article>
       </section>
