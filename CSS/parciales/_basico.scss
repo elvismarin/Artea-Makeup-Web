@@ -28,28 +28,40 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
-    color: white;
+    color: red;
     -webkit-text-stroke: 0.5px;
     -webkit-text-stroke-color: red;
-    
+}
+
+.nav__link:hover{
+    color:white;
 }
 
 
-.footer {
+.footer{
    display: flex;
    align-items: center;
-   justify-content: space-evenly;
+   justify-content: space-around;
+   background-color:#f8d9e1 ;
+
+
+&__redes{
+display: flex;
+
 }
 
-.footer__logo {
+&__logo {
     width: 30%;
     height: auto;
 }
 
-.footer__item {
-    width: 10%;
+&__item {
+    width: 2rem;
     height: auto;
-}
+    margin-left: 1rem;
+    
+}}
+
 
 .imagenes {
     width: 400px;

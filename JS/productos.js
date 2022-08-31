@@ -45,43 +45,60 @@ const producto32 = new producto ("31","Otro otro producto", "../Multimedia/PRODU
 
 
 
-const productos=[];
+const productosusd=[];
+const productos = [];
+productosusd.push(producto1);
+productosusd.push(producto2);
+productosusd.push(producto3);
+productosusd.push(producto4);
+productosusd.push(producto5);
+productosusd.push(producto6);
+productosusd.push(producto7);
+productosusd.push(producto8);
+productosusd.push(producto9);
+productosusd.push(producto10);
+productosusd.push(producto11);
+productosusd.push(producto12);
+productosusd.push(producto13);
+productosusd.push(producto14);
+productosusd.push(producto15);
+productosusd.push(producto16);
+productosusd.push(producto17);
+productosusd.push(producto18);
+productosusd.push(producto19);
+productosusd.push(producto20);
+productosusd.push(producto21);
+productosusd.push(producto22);
+productosusd.push(producto23);
+productosusd.push(producto24);
+productosusd.push(producto25);
+productosusd.push(producto26);
+productosusd.push(producto27);
+productosusd.push(producto28);
+productosusd.push(producto29);
+productosusd.push(producto30);
+productosusd.push(producto31);
+productosusd.push(producto32);
 
-productos.push(producto1);
-productos.push(producto2);
-productos.push(producto3);
-productos.push(producto4);
-productos.push(producto5);
-productos.push(producto6);
-productos.push(producto7);
-productos.push(producto8);
-productos.push(producto9);
-productos.push(producto10);
-productos.push(producto11);
-productos.push(producto12);
-productos.push(producto13);
-productos.push(producto14);
-productos.push(producto15);
-productos.push(producto16);
-productos.push(producto17);
-productos.push(producto18);
-productos.push(producto19);
-productos.push(producto20);
-productos.push(producto21);
-productos.push(producto22);
-productos.push(producto23);
-productos.push(producto24);
-productos.push(producto25);
-productos.push(producto26);
-productos.push(producto27);
-productos.push(producto28);
-productos.push(producto29);
-productos.push(producto30);
-productos.push(producto31);
-productos.push(producto32);
+//const productos = structuredClone(productosusd);
 
-productosars = productos;
+/**PASAR PRECIO DE DOLAR A PESOS */
+function convertirprecios ( pesosARG){
+    productosusd.forEach(function(item) {
+        item.precio = (item.precio * pesosARG).toFixed(2);
+        productos.push(item);
+    });
+    mostrarProductos(productos);
+}
+fetch("https://open.er-api.com/v6/latest/USD")
+.then( res => res.json())
+.then( data => {
+    convertirprecios (data.rates.ARS);
+    //console.log(data.rates.ARS);
+});
 
+
+     
 const contenedorCarrito = document.getElementById("carrito-contenedor")
 
 const botonVaciar = document.getElementById("vaciar-carrito")
@@ -103,22 +120,24 @@ function mostrarProductos(productos) {
 
     const contenedorDeProductos = document.getElementById("contenedor-de-productos");
     contenedorDeProductos.innerHTML = "";
-
+    console.log(productos);
     productos.forEach(producto => {
         const divProducto = document.createElement("div");
-        divProducto.classList.add("producto");
+        divProducto.classList.add("producto", "col");
         divProducto.innerHTML = `
-        <img class="imagenes" src="${producto.imagen}" alt="${producto.nombre}">
-        <h3>${producto.nombre}</h3>
-        <p>${producto.precio}</p>
+        <img class="producto__img" src="${producto.imagen}" alt="${producto.nombre}">
+        <h4 class="producto__titulo">${producto.nombre}</h4>
+        <p class="producto__precio">$${producto.precio}</p>
         `;
-
+         
         const botonComprar = document.createElement("button");
         botonComprar.classList.add("botonComprar")
-        botonComprar.innerText = "Comprar";
+        botonComprar.innerText = "Añadir al carrito";
         botonComprar.addEventListener("click", () => {
            agregarAlCarrito(producto.id)
         })
+
+        
 
     divProducto.appendChild(botonComprar);
 
@@ -145,9 +164,9 @@ const agregarAlCarrito = (productoId) => {
     const item = productos.find ((producto) => producto.id === productoId)
     carrito.push(item);
     actualizarCarrito();
-    console.log(carrito)
+    console.log(carrito);
 }
-actualizarCarrito()
+actualizarCarrito();
 }
 
 mostrarProductos(productos);
@@ -176,7 +195,7 @@ const actualizarCarrito = () => {
     }); 
 
     carrito.forEach(element => {
-        pre = pre + (element.precio * element.cantidad * pesosARG)  
+        pre = pre + (element.precio * element.cantidad )  
     });
 
 
@@ -215,12 +234,6 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 
-/**PASAR PRECIO DE DOLAR A PESOS */
-
-fetch("https://open.er-api.com/v6/latest/USD")
-.then( res => res.json())
-.then( data => {
-    pesosARG = (data.rates.ARS)});
 
 
 

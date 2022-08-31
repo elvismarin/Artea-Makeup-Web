@@ -1,12 +1,34 @@
 
 .producto {
-    margin: 0.5rem;
+    border-style: solid;
+    margin: 1rem;
+    padding:0%;
+
+
+&__img {
+    max-width: 18rem;
+}
+&__titulo {
+    font-size: 1.5rem;
+}
+&__precio{
+    font-size: 1.5rem;
+}
+
+
 }
 
 .botonComprar {
-    color: blueviolet;
-    background-color: black;
+    background: #d96330;
+    color: #ffffff;
+    border-radius: 15px;
+    justify-items: center;
 }
+
+.botonComprar:hover {
+    background: #f26f40;
+    color: #ffffff;
+  }
 
 /*--MODAL DEL CARRITO--*/
 .modal-content {
