@@ -123,7 +123,7 @@ function mostrarProductos(productos) {
     console.log(productos);
     productos.forEach(producto => {
         const divProducto = document.createElement("div");
-        divProducto.classList.add("producto", "col");
+        divProducto.classList.add("producto", "col", "text-center");
         divProducto.innerHTML = `
         <img class="producto__img" src="${producto.imagen}" alt="${producto.nombre}">
         <h4 class="producto__titulo">${producto.nombre}</h4>
@@ -131,7 +131,7 @@ function mostrarProductos(productos) {
         `;
          
         const botonComprar = document.createElement("button");
-        botonComprar.classList.add("botonComprar")
+        botonComprar.classList.add("botonComprar", "mb-3")
         botonComprar.innerText = "Añadir al carrito";
         botonComprar.addEventListener("click", () => {
            agregarAlCarrito(producto.id)
@@ -182,11 +182,12 @@ const actualizarCarrito = () => {
     carrito.forEach(producto => {
         const div = document.createElement("div")
         div.className = ("productoEnCarrito")
-        div.innerHTML = `
-        <p>${producto.nombre}</p>
+        div.innerHTML = `<article class="carrito__producto">
+        <img class="carrito__img" src="${producto.imagen}">
+        <div class="carrito__texto"><p>${producto.nombre}</p>
         <p>Precio: ${producto.precio}</p>
         <p>Cantidad: <span id="cantidad">${producto.cantidad}</span></p>
-        <button onclick = "eliminarDelCarrito(${producto.id})" class="boton-eliminar">X</button>
+        <button onclick = "eliminarDelCarrito(${producto.id})" class="boton-eliminar">Remover del carrito</button> </div></article>
         `
 
        contenedorCarrito.appendChild(div) 

@@ -73,6 +73,7 @@ body {
   border-style: solid;
   margin: 1rem;
   padding: 0%;
+  padding-top: 1rem;
 }
 .producto__img {
   max-width: 18rem;
@@ -89,6 +90,8 @@ body {
   color: #ffffff;
   border-radius: 15px;
   justify-items: center;
+  padding: 0.5rem;
+  font-weight: bold;
 }
 
 .botonComprar:hover {
@@ -96,9 +99,33 @@ body {
   color: #ffffff;
 }
 
+.carrito__producto {
+  display: flex;
+  margin: 1rem;
+}
+.carrito__texto {
+  margin-left: 1rem;
+}
+.carrito__img {
+  max-width: 10rem;
+  margin-left: 1rem;
+}
+
+.botonCerrar {
+  background-color: #ee0000;
+  font-weight: bold;
+  color: white;
+}
+
 /*--MODAL DEL CARRITO--*/
 .modal-content {
   padding: 20px 0;
+}
+
+.carrito-contenedor {
+  height: 25rem;
+  width: auto;
+  overflow-y: scroll;
 }
 
 .modal-wrapper {
