@@ -202,8 +202,12 @@ const actualizarCarrito = () => {
 
 
     precioTotal.innerHTML = `${pre}`
+
+    contadorCarrito.innerText = carrito.length
+    precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad , 0)
 }
 
+    
 //Eliminar productos del carrito
 
 const eliminarDelCarrito = (productoId) => {
